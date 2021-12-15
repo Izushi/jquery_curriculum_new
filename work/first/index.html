@@ -39,7 +39,12 @@
       <ul class="list" id="q6">
         <li>Q6-1</li>
         <li>Q6-2</li>
-        <li>Q6-3</li>
+        <li>Q6-3
+          <ul>
+            <li>index番号0</li>
+            <li>index番号1</li>
+          </ul>
+        </li>
         <li>Q6-4</li>
       </ul>
     </div>
@@ -52,6 +57,7 @@
   <script>
     // readyイベントで使用するfunctionは無名関数
     // html内の要素を操作する場合はreadyイベントを使用する
+    // readyイベントjsではhtmlのように上から順に実行されないため
     $(function () {
       // 第1問 id='q1'の要素の文字色を赤色にせよ。
       // jQueryオブジェクト：$('セレクタ')
@@ -80,7 +86,7 @@
         $(this).addClass('large');
       });
       // 第5問 id='q5'の要素をクリックしたらこの要素を2秒かけてmargin-topとmargin-leftを100pxの位置に移動させよ。
-      $('#5q').click(function () {
+      $('#q5').click(function () {
         // animateメソッドはcssのプロパティを一定時間かけて変更するメソッド
         $(this).animate({
           'marginLeft': 100,
@@ -90,7 +96,7 @@
       // 第6問 id='q6'の子要素をクリックしたら、その要素のインデックス（何番目か）をconsole.log()とalert()を用いて表示させよ。
       // findメソッドは指定したDOM要素の中から引数に渡された要素を取得するメソッド
       $('#q6').find('li').click(function () {
-        // indexメソッドはその要素のindex番号を教えてくれるメソッド
+        // indexメソッドはその兄弟要素のindex番号を教えてくれるメソッド
         var targetNum = $(this).index();
         console.log(targetNum);
         alert(targetNum);
